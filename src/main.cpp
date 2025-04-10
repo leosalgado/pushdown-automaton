@@ -26,6 +26,7 @@ void process(std::ifstream &input, pda::Stack &pda_stack) {
   std::string content = ss.str();
   int i = 0, len = content.size();
 
+  std::cout << "READS: ";
   while (i < len && content[i] == 'a') {
     std::cout << content[i];
     pda_stack.push(std::string(1, content[i]));
