@@ -16,6 +16,7 @@ public:
   std::string top() const;
   bool empty() const;
   void clear();
+  void print();
 };
 
 } // namespace pda

@@ -12,9 +12,10 @@ void process(std::ifstream &input, pda::Stack &pda_stack) {
     pda_stack.push(std::string(1, c));
   }
 
-  std::cout << "Top of stack: " << pda_stack.top() << std::endl;
   while (!pda_stack.empty()) {
-    std::cout << "Top of stack after pop: " << pda_stack.top() << std::endl;
+    std::cout << "Top of stack: " << pda_stack.top() << " | ";
+    pda_stack.print();
+    std::cout << std::endl;
     pda_stack.pop();
   }
 }
