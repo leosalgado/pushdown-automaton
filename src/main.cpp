@@ -40,7 +40,14 @@ void process(std::ifstream &input, pda::Stack &pda_stack) {
 
   std::cout << std::endl;
 
-  while (!pda_stack.empty()) {
+  while (pda_stack.top() == "b") {
+    std::cout << "Top of stack: " << pda_stack.top() << " | ";
+    pda_stack.print();
+    std::cout << std::endl;
+    pda_stack.pop();
+  }
+
+  while (pda_stack.top() == "a") {
     std::cout << "Top of stack: " << pda_stack.top() << " | ";
     pda_stack.print();
     std::cout << std::endl;
