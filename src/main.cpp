@@ -1,23 +1,31 @@
+#include <fstream>
 #include <iostream>
-#include <stack>
 #include <string>
 
-void process(const std::string &input) {
-  std::stack<char> pda_stack;
-  pda_stack.push('Z');
+#include "../include/pda/pda.hpp"
 
-  for (char c : input) {
-    std::cout << c << std::endl;
+void process(std::ifstream &input, pda::Stack &pda_stack) {
+  char c;
+
+  while (input >> c) {
+    std::cout << "Read: " << c << std::endl;
+    pda_stack.push(std::string(1, c));
+  }
+
+  std::cout << "Top of stack: " << pda_stack.top() << std::endl;
+  while (!pda_stack.empty()) {
+    std::cout << "Top of stack after pop: " << pda_stack.top() << std::endl;
+    pda_stack.pop();
   }
 }
 
 int main(int argc, char *argv[]) {
-  std::string input;
+  pda::Stack pda_stack;
 
-  std::cin >> input;
-  std::cout << input << std::endl;
+  std::ifstream input_file("../input/input.txt");
 
-  process(input);
+  process(input_file, pda_stack);
 
+  std::cout << "Top of stack after process: " << pda_stack.top() << std::endl;
   return 0;
 }
