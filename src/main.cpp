@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "../include/pda/pda.hpp"
+#include <pda/pda.hpp>
 
 void process(std::ifstream &input, pda::Stack &pda_stack) {
   char c;

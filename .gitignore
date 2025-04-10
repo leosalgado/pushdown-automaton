@@ -1,7 +1,7 @@
 # Prerequisites
 *.d
 
-# System
+# System files (macOS)
 **/.DS_Store
 
 # Compiled Object files
@@ -49,3 +49,4 @@ _deps/
 CMakeUserPresets.json
 build/
 bin/
+.cache/

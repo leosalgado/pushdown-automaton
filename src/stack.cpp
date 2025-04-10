@@ -1,4 +1,4 @@
-#include "../include/pda/pda.hpp"
+#include <pda/pda.hpp>
 
 namespace pda {
 
