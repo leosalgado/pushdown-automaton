@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 
+#include <lang/lang1.hpp>
 #include <pda/pda.hpp>
 
 void process(std::ifstream &input, pda::Stack &pda_stack);
@@ -24,34 +25,10 @@ void process(std::ifstream &input, pda::Stack &pda_stack) {
   std::ostringstream ss;
   ss << input.rdbuf();
   std::string content = ss.str();
-  int i = 0, len = content.size();
 
-  std::cout << "READS: ";
-  while (i < len && content[i] == 'a') {
-    std::cout << content[i];
-    pda_stack.push(std::string(1, content[i]));
-    i++;
-  }
-
-  while (i < len && content[i] == 'b') {
-    std::cout << content[i];
-    pda_stack.push(std::string(1, content[i]));
-    i++;
-  }
-
-  std::cout << std::endl;
-
-  while (pda_stack.top() == "b") {
-    std::cout << "Top of stack: " << pda_stack.top() << " | ";
-    pda_stack.print();
-    std::cout << std::endl;
-    pda_stack.pop();
-  }
-
-  while (pda_stack.top() == "a") {
-    std::cout << "Top of stack: " << pda_stack.top() << " | ";
-    pda_stack.print();
-    std::cout << std::endl;
-    pda_stack.pop();
+  if (lang1(content, pda_stack)) {
+    std::cout << "Word accepted" << std::endl;
+  } else {
+    std::cout << "Word not accepted" << std::endl;
   }
 }
