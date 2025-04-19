@@ -28,7 +28,7 @@ void process(std::ifstream &input, pda::Stack &pda_stack) {
 
   if (lang1(content, pda_stack)) {
     std::cout << "Word accepted" << std::endl;
-  } else {
-    std::cout << "Word not accepted" << std::endl;
+    return;
   }
+  std::cout << "Word not accepted" << std::endl;
 }
